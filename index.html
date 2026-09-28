@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sihana Fathima | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #020817;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Background Glow */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #00c8ff;
+            filter: blur(180px);
+            opacity: 0.12;
+            top: 10%;
+            left: 35%;
+            z-index: -1;
+        }
+
+        /* Navbar */
+        nav {
+            width: 100%;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background: rgba(2, 8, 23, 0.75);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00d9ff;
+            text-shadow: 0 0 15px #00d9ff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00d9ff;
+            text-shadow: 0 0 10px #00d9ff;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+            color: #00d9ff;
+            text-shadow:
+                0 0 10px #00d9ff,
+                0 0 30px #0077ff,
+                0 0 60px #0055ff;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            color: #dcecff;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #a9bfd5;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 30px;
+            border: 1px solid #00d9ff;
+            border-radius: 30px;
+            color: #00d9ff;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.25);
+        }
+
+        .btn:hover {
+            background: #00d9ff;
+            color: #020817;
+            box-shadow: 0 0 30px #00d9ff;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            color: #00d9ff;
+            text-shadow: 0 0 15px #00d9ff;
+            margin-bottom: 50px;
+        }
+
+        /* About */
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about p {
+            color: #abc0d5;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        /* Skills */
+        .skills-container {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .skill {
+            padding: 25px;
+            text-align: center;
+            background: rgba(0, 30, 60, 0.5);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: #00d9ff;
+            box-shadow: 0 0 25px rgba(0, 217, 255, 0.3);
+        }
+
+        .skill h3 {
+            color: #00d9ff;
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: #9db4c9;
+        }
+
+        /* Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            padding: 30px;
+            background: linear-gradient(
+                145deg,
+                rgba(0, 35, 70, 0.8),
+                rgba(2, 8, 23, 0.9)
+            );
+            border: 1px solid rgba(0, 217, 255, 0.25);
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.25);
+            border-color: #00d9ff;
+        }
+
+        .project h3 {
+            color: #00d9ff;
+            margin-bottom: 15px;
+        }
+
+        .project p {
+            color: #a7bbcf;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #a7bbcf;
+            margin: 12px;
+        }
+
+        .contact a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(0, 217, 255, 0.15);
+            color: #71869a;
+        }
+
+        /* Animation */
+        .fade {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">SIHANA.</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content fade">
+
+            <h1>Sihana Fathima</h1>
+
+            <h2>Computer Science Student | Developer</h2>
+
+            <p>
+                Passionate Computer Science student interested in
+                programming, web development and building creative
+                digital solutions.
+            </p>
+
+            <a href="#projects" class="btn">
+                Explore My Work →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about">
+
+            <p>
+                I am a passionate Computer Science student who enjoys
+                learning new technologies and developing practical
+                projects. I have an interest in C++, Python, web
+                development and problem solving. I am continuously
+                improving my technical skills and exploring modern
+                technologies.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill">
+                <h3>C++</h3>
+                <p>Programming & DSA</p>
+            </div>
+
+            <div class="skill">
+                <h3>Python</h3>
+                <p>Programming</p>
+            </div>
+
+            <div class="skill">
+                <h3>HTML</h3>
+                <p>Web Structure</p>
+            </div>
+
+            <div class="skill">
+                <h3>CSS</h3>
+                <p>Web Design</p>
+            </div>
+
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <p>Web Interactivity</p>
+            </div>
+
+            <div class="skill">
+                <h3>Git & GitHub</h3>
+                <p>Version Control</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="projects">
+
+            <div class="project">
+                <h3>Phishing Detection System</h3>
+
+                <p>
+                    AI-powered system that detects suspicious and
+                    phishing links and helps users identify potentially
+                    malicious URLs.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <h3>DSA Projects</h3>
+
+                <p>
+                    Academic projects and visual explanations based
+                    on Data Structures and Algorithms using C++.
+                </p>
+            </div>
+
+
+            <div class="project">
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    A responsive personal portfolio website designed
+                    using HTML, CSS and JavaScript with a modern
+                    neon interface.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact">
+
+            <p>
+                📧 Email:
+                <a href="mailto:yourmail@gmail.com">
+                    yourmail@gmail.com
+                </a>
+            </p>
+
+            <p>
+                💻 GitHub:
+                <a href="#">
+                    github.com/yourusername
+                </a>
+            </p>
+
+            <p>
+                🔗 LinkedIn:
+                <a href="#">
+                    linkedin.com/in/yourusername
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 Sihana Fathima | All Rights Reserved
+
+    </footer>
+
+
+    <script>
+
+        // Simple scroll animation
+        const sections = document.querySelectorAll("section");
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fade");
+                    }
+
+                });
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+
+</body>
+</html>
